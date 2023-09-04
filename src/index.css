@@ -1,23 +1,6 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
 
-.page {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  max-width: 1280px;
-  min-width: 320px;
-  background-color: #202020;
-  color: #fff;
-
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-/*   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility; */
- 
-}
+html {
+    scroll-behavior: smooth;
+  }
