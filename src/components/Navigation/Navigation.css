@@ -1,0 +1,104 @@
+.nav__page-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 787px) {
+  .nav__page-overlay {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+  }
+
+  .nav__overlay-container {
+    flex: 1 1 auto;
+  }
+
+  .nav__menu {
+    display: flex;
+    flex-direction: column;
+    padding: 159px 90px 90px 90px;
+    width: 520px;
+    min-height: 100vh;
+    background: #202020;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .nav__close-btn {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background-image: url("../../images/close-button.svg");
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .nav__close-btn:hover {
+    opacity: 0.6;
+  }
+
+  .nav__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .nav__link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    width: max-content;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav__link_active {
+    color: #2be080;
+  }
+
+  .nav__link:hover {
+    border-bottom: 2px solid #fff;
+  }
+
+  .nav__account-btn {
+    width: 100px;
+    height: 32px;
+    background: #202020;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    cursor: pointer;
+  }
+
+  .nav__account-btn:hover {
+    opacity: 0.6;
+  }
+}
+
+@media screen and (max-width: 523px) {
+  .nav__menu {
+    padding: 144px 10px 46px 10px;
+    width: 100%;
+  }
+
+  .nav__overlay-container {
+    display: none;
+  }
+
+  .nav__links {
+    gap: 15px;
+  }
+}
