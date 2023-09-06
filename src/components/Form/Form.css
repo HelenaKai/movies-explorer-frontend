@@ -29,17 +29,6 @@
   color: #a0a0a0;
 }
 
-.form__logo {
-  width: 38px;
-  height: 38px;
-  transition: 0.7s;
-}
-
-.form__logo:hover {
-  cursor: pointer;
-  opacity: 0.6;
-}
-
 .form__title {
   color: #fff;
   padding: 40px 0;
@@ -149,6 +138,10 @@
   font-size: 10px;
   font-weight: 400;
   height: 12px;
+  max-width: 384px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
 }
 
@@ -191,6 +184,10 @@
 
   .form__inputs {
     min-height: 468px;
+  }
+
+  .form__input-error {
+    max-width: 250px;
   }
 
   .form__button-save {

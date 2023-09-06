@@ -37,7 +37,7 @@ function Login() {
             defaultValue=""
             minLength="2"
             maxLength="30"
-            placeholder="Введите пароль" 
+            placeholder="Введите пароль"
             required
           />
           <span className="form__input-error">Введите пароль</span>

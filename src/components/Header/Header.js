@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import Logo from "../../images/logo.svg";
-import Account from "../../images/account-btn.svg"; 
+import Logo from "../Logo/Logo";
+import Account from "../../images/account-btn.svg";
 import Menu from "../../images/burgermenu-button.svg";
 import Navigation from "../Navigation/Navigation";
 
@@ -40,9 +40,7 @@ function Header() {
     <>
       {showSinglHeader() && (
         <header className="header" id="header">
-          <Link to="/" className="logo">
-            <img src={Logo} alt="Логотип"/>
-          </Link>
+          <Logo />
           <div className="header__btn-container">
             <Link to="/signup" className="header__btn">
               Регистрация
@@ -56,9 +54,7 @@ function Header() {
 
       {showSecndHeader() && (
         <header className="header header_gray" id="header-gray">
-          <Link to="/" className="logo">
-            <img src={Logo} alt="Логотип приложения"/>
-          </Link>
+          <Logo />
           <div className="header__btn-container-films">
             <NavLink
               to="/movies"

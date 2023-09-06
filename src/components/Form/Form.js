@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
+import Logo from "../Logo/Logo";
 import "./Form.css";
 
 function Form(props) {
@@ -9,11 +9,9 @@ function Form(props) {
   return (
     <section className="form">
       <div className="form__container">
-        <Link to="/">
-          <img className="form__logo" src={logo} alt="Смайлик-логотип" />
-        </Link>
+        <Logo />
 
-        <h2 className="form__title"> {welcome} </h2>
+        <h1 className="form__title"> {welcome} </h1>
 
         <form className="form__inputs">
           {children}
