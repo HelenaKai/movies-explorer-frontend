@@ -15,7 +15,6 @@
   width: 100%;
   height: 203px;
   border-radius: 6px 6px 0 0;
-  
   background-repeat: no-repeat;
   border-color: transparent;
 }
@@ -74,15 +73,18 @@
   border: none;
   outline: none;
   cursor: pointer;
-  background: transparent url(../../images/delete-btn.svg) center / 16px no-repeat;
+  background: transparent url(../../images/delete-button.svg) center / 16px no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+
 }
 
 .card__button-delete:hover {
   opacity: 0.6;
   cursor: pointer;
 }
-
-
 
 @media screen and (max-width: 787px) {
   .card__image {

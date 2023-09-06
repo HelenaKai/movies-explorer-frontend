@@ -3,12 +3,22 @@
 }
 
 .cards__grid {
-  padding: 0;
-  margin: 0 auto 60px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(284px, 1fr));
   gap: 24px 37px;
+  grid-template-columns: repeat(auto-fit, 364px);
+  grid-template-rows: 281px;
+  justify-content: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards__button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 8%;
 }
 
 .cards__loader-button {
@@ -23,6 +33,7 @@
   font-weight: 500;
   padding: 11px 0 9px 0;
   transition: opacity 0.3s ease;
+  box-sizing: border-box;
 }
 
 .cards__loader-button:hover {
@@ -30,46 +41,23 @@
 }
 
 @media screen and (max-width: 787px) {
-
   .cards {
     padding: 80px 30px 80px 30px;
   }
 
   .cards__grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px 30px;
     margin-bottom: 80px;
+    gap: 30px 30px;
+    grid-template-columns: repeat(auto-fit, 339px);
+    grid-template-rows: 262px;
   }
-
-}
-
-@media screen and (max-width: 650px) {
-
-  .cards {
-    padding: 50px 10px 50px 10px;
-  }
-
-  .cards__grid {
-    grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
-    gap: 14px;
-    margin-bottom: 76px;
-  }
-
 }
 
 @media screen and (max-width: 523px) {
-
   .cards__grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 50px;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-rows: 237px;
   }
-
-}
-
-@media screen and (max-width: 450px) {
-
-  .cards__grid {
-    grid-template-columns: repeat(auto-fit, minmax(170px, 300px));
-    justify-content: center;
-  }
-
 }
