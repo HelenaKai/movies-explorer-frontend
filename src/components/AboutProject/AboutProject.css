@@ -1,12 +1,13 @@
- .about {
+.about {
   padding: 110px 70px;
-  text-align: start;
   background-color: #202020;
+  box-sizing: border-box;
 }
 
 .about__title {
   margin: 0;
   font-size: 22px;
+  line-height: 27px;
   font-weight: 400;
   letter-spacing: -0.88px;
   border-bottom: 1px solid #dadada;
@@ -26,7 +27,7 @@
 }
 
 .about__description:first-of-type {
-  margin-right: 40px;
+  margin-right: 53px;
 }
 
 .about__description-title {
@@ -43,36 +44,39 @@
   margin: 26px 0 0;
 }
 
-.about__progressline:first-of-type {
-  width: 20%;
+.about__progress-line {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 14px 0;
 }
 
-.about__progressline:last-of-type {
-  width: 80%;
-}
-
-.about__progressline-title {
+.about__progress-line-title {
   margin: 0;
-  padding: 9px 14px;
-  background-color: #3ddc84;
-  color: #303030;
-  text-align: center;
-  font-size: 14px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 400;
+  font-size: 14px;
 }
 
-.about__progressline-title_grey {
+.about__progress-line-title_theme_green {
+  background-color: #3ddc84;
+  color: #000000;
+}
+
+.about__progress-line-title_theme_grey {
   background-color: #303030;
   color: #fff;
 }
 
-.about__progressline-text {
-  color: #a0a0a0;
-  text-align: center;
-  font-size: 14px;
+.about__progress-line-text {
+  margin: 0;
   font-weight: 500;
+  font-size: 14px;
   line-height: 17px;
-  margin-top: 14px;
+  text-align: center;
+  color: #8b8b8b;
 }
 
 @media screen and (max-width: 787px) {
@@ -89,21 +93,25 @@
   .about__container:last-of-type {
     margin-top: 93px;
   }
-  
+
   .about__description:first-of-type {
     margin-right: 30px;
   }
 
+  .about__progress-line {
+    display: grid;
+    grid-template-columns: 140px 4fr;
+  }
 }
 
 @media screen and (max-width: 523px) {
   .about {
-    padding: 70px 18px;
+    padding: 70px 18px 69px 18px;
   }
 
   .about__title {
     font-size: 18px;
-    letter-spacing: -0.72px;
+    line-height: 22px;
     padding-bottom: 28px;
   }
 
@@ -128,6 +136,7 @@
   .about__description-title {
     font-size: 18px;
     letter-spacing: -0.72px;
+    line-height: 22px;
   }
 
   .about__description-text {
@@ -136,26 +145,24 @@
     line-height: 16px;
   }
 
-  .about__container_progressline {
-    flex-direction: row;
+  .about__progress-line {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 100px 4fr;
   }
 
-  .about__progressline:first-of-type {
-    width: 30%;
+  .about__progress-line {
+    grid-template-columns: 100px 1fr;
+    gap: 10px 0;
   }
 
-  .about__progressline:last-of-type {
-    width: 70%;
-  }
-
-  .about__progressline-title {
-    padding: 11px 10px;
+  .about__progress-line-title {
     font-size: 11px;
+    line-height: 13px;
   }
 
-  .about__progressline-text {
+  .about__progress-line-text {
     font-size: 11px;
-    margin-top: 10px;
-    padding: 0;
+    line-height: normal;
   }
 }

@@ -4,6 +4,7 @@ import "./Profile.css";
 function Profile() {
   return (
     <>
+    <main>
       <section className="profile">
         <h1 className="profile__welcome">Привет, Елена!</h1>
         <form id="form" className="profile__form">
@@ -43,6 +44,7 @@ function Profile() {
           </button>
         </form>
       </section>
+    </main>  
     </>
   );
 }

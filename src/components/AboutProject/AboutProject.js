@@ -21,27 +21,22 @@ function AboutProject() {
             На выполнение диплома ушло 5&nbsp;недель
           </h3>
           <p className="about__description-text">
-            У каждого этапа был мягкий и&nbsp;жёсткий дедлайн, которые нужно было
-            соблюдать, чтобы успешно защититься.
+            У каждого этапа был мягкий и&nbsp;жёсткий дедлайн, которые нужно
+            было соблюдать, чтобы успешно защититься.
           </p>
         </div>
       </div>
 
-      <div className="about__container about__container_progressline">
-        <div className="about__progressline">
-          <h4 className="about__progressline-title">1 неделя</h4>
-          <p className="about__progressline-text">Back-end</p>
-        </div>
-
-        <div className="about__progressline">
-          <h4 className="about__progressline-title about__progressline-title_grey">
-            4 недели
-          </h4>
-          <p className="about__progressline-text">Front-end</p>
-        </div>
+      <div className="about__container about__progress-line">
+        <h4 className="about__progress-line-title about__progress-line-title_theme_green ">
+          1 неделя
+        </h4>
+        <h4 className="about__progress-line-title about__progress-line-title_theme_grey">4 недели</h4>
+        <p className="about__progress-line-text">Back-end</p>
+        <p className="about__progress-line-text">Front-end</p>
       </div>
     </section>
   );
-} 
+}
 
 export default AboutProject;

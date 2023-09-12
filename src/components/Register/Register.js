@@ -4,6 +4,16 @@ import Form from '../Form/Form';
 
 function Register() {
 
+  const handleInputChange = (event) => {
+    const input = event.target;
+    const errorSpan = input.nextElementSibling; // Следующий элемент после инпута – это span с ошибкой
+    if (!input.validity.valid) {
+        errorSpan.textContent = input.validationMessage;
+    } else {
+        errorSpan.textContent = '';
+    }
+};
+
   return (
     <>
       <Form
@@ -20,13 +30,14 @@ function Register() {
             className="form__input"
             type="text"
             id="name-input"
-            defaultValue="Елена"
+            placeholder="Введите имя"
             minLength="2"
             maxLength="30"
             required
+            onInput={handleInputChange}
         
           />
-          <span className="form__input-error">Заполните поле "Имя".</span>
+          <span className="form__input-error"></span>
         </label>
 
         <label className="form__item">
@@ -36,10 +47,11 @@ function Register() {
             className="form__input"
             type="email"
             id="email-input"
-            defaultValue="testmail@yandex.ru"
+            placeholder="Введите email"
             required
+            onInput={handleInputChange}
           />
-          <span className="form__input-error">Адрес электронной почты должен содержать символ "@".</span>
+          <span className="form__input-error"></span>
         </label>
 
         <label className="form__item">
@@ -54,8 +66,9 @@ function Register() {
             maxLength="30"
             placeholder="Введите пароль" 
             required
+            onInput={handleInputChange}
           />
-          <span className="form__input-error">Заполните поле "Пароль".</span>
+          <span className="form__input-error"></span>
         </label>
       </Form>
     </>

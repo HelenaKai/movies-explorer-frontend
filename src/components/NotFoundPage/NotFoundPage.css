@@ -14,6 +14,7 @@
   text-align: center;
   font-size: 140px;
   font-weight: 400;
+  line-height: normal;
   margin: 0 0 5px 0;
 }
 
@@ -21,6 +22,7 @@
   text-align: center;
   font-size: 16px;
   font-weight: 400;
+  line-height: normal;
   margin: 0;
 }
 
@@ -29,6 +31,8 @@
   text-align: center;
   font-size: 14px;
   font-weight: 400;
+  line-height: normal;
+  border: none;
 }
 
 @media screen and (max-width: 523px) {

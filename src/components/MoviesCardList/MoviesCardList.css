@@ -5,8 +5,8 @@
 .cards__grid {
   display: grid;
   gap: 24px 37px;
-  grid-template-columns: repeat(auto-fit, 364px);
-  grid-template-rows: 281px;
+  grid-template-columns: repeat(auto-fit, 360px);
+  grid-template-rows: minmax(319px);
   justify-content: center;
   list-style: none;
   margin: 0;
@@ -40,7 +40,7 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 787px) {
+@media screen and (min-width: 787px) {
   .cards {
     padding: 80px 30px 80px 30px;
   }
@@ -48,16 +48,18 @@
   .cards__grid {
     margin-bottom: 80px;
     gap: 30px 30px;
-    grid-template-columns: repeat(auto-fit, 339px);
-    grid-template-rows: 262px;
+    grid-template-columns: repeat(auto-fit, 342px);
+    grid-template-rows: minmax(309px);
+
+
   }
 }
 
-@media screen and (max-width: 523px) {
+@media screen and (min-width: 523px) {
   .cards__grid {
     margin-bottom: 50px;
     gap: 14px;
-    grid-template-columns: repeat(auto-fit, 300px);
-    grid-template-rows: 237px;
+     grid-template-columns: repeat(auto-fit, 300px);
+     grid-template-rows: minmax(271px);
   }
 }

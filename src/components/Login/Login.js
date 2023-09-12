@@ -2,45 +2,60 @@ import React from 'react';
 import '../Form/Form.css';
 import Form from '../Form/Form';
 
-function Login() {
+function Login(onSubmit) {
+
+  const handleInputChange = (event) => {
+    const input = event.target;
+    const errorSpan = input.nextElementSibling; // Следующий элемент после инпута – это span с ошибкой
+    if (!input.validity.valid) {
+        errorSpan.textContent = input.validationMessage;
+    } else {
+        errorSpan.textContent = '';
+    }
+};
+
+
   return (
     <>
       <Form
+        name="login" 
         welcome="Рады видеть!"
         button="Войти"
         question="Ещё не зарегистрированы?"
         path="/signup"
         link="Регистрация"
+        noValidate      
       >
         <label className="form__item">
           E-mail
           <input
-            name="email"
             className="form__input"
-            type="email"
+            name="email"
             id="email-input"
-            defaultValue="testmail@yandex.ru"
+            type="email"
+            onInput={handleInputChange}
+            placeholder="Введите email"
+            autoComplete="off"
             required
           />
-          <span className="form__input-error">
-            Адрес электронной почты должен содержать символ "@".
-          </span>
+          <span className="form__input-error"></span>
         </label>
 
         <label className="form__item">
           Пароль
           <input
-            name="password"
             className="form__input"
-            type="password"
+            name="password"
             id="password-input"
-            defaultValue=""
+            type="password"
             minLength="2"
-            maxLength="30"
+            maxLength="30" 
+            onInput={handleInputChange}
             placeholder="Введите пароль"
+            autoComplete="off"
             required
           />
-          <span className="form__input-error">Введите пароль</span>
+          <span className="form__input-error"></span>
         </label>
       </Form>
     </>

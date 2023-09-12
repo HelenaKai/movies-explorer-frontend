@@ -30,7 +30,11 @@ function App() {
   // функция проверки Footer на текущей странице
   const showFooter = () => {
     const { pathname } = location;
-    return pathname === "/";
+    return (
+      pathname === "/" || 
+      pathname === "/movies" || 
+      pathname === "/saved-movies"
+    );
   };
 
   return (
@@ -46,6 +50,7 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
+
       {showFooter() && <Footer />}
     </div>
   );

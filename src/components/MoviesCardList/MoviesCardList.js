@@ -18,9 +18,7 @@ function MoviesCardList() {
           <MoviesCard key={card.id} card={card} />
         ))}
       </ul>
-      {isLoading ? (
-        <Preloader />
-      ) : (
+      {isLoading ? (<Preloader />) : (
         <div className="cards__button-container">
           <button
             className="cards__loader-button"
