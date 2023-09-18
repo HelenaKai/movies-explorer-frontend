@@ -53,9 +53,9 @@ function Header() {
       )}
 
       {showSecndHeader() && (
-        <header className="header header_gray" id="header-gray">
+        <header className="header header_theme_dark" id="header_theme_dark">
           <Logo />
-          <div className="header__btn-container-films">
+          <div className="header__btn-container-movies">
             <NavLink
               to="/movies"
               className="header__btn"

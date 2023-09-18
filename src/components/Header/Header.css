@@ -1,129 +1,141 @@
 .header {
-    position: relative;
-    padding: 0 70px;
-    min-height: 74px;
-    display: flex;
-    align-items: center;
-    background: #073042;
-  }
-  
-  .header_gray {
-    background: #202020;
-  }
-  
-  .header__btn-container {
-    margin-left: auto;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-  }
-  
-  .header__btn-container-films {
-    display: flex;
-    gap: 21px;
-    margin-left: 44px;
-  }
-  
-  .header__btn {
-    min-height: 32px;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.7s;
-  }
-  
-  .header__btn_active {
-    color: #2be080;
-  }
-  
-  .header__btn:hover {
-    cursor: pointer;
-    opacity: 0.6;
-  }
-  
-  .header__btn-green {
-    min-width: 76px;
-    border-radius: 3px;
-    color: #000;
-    background-color: #3ddc84;
-  }
-  
-  .header__account-btn {
-    width: 100px;
-    height: 32px;
-    background: #202020;
-    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
-    border-radius: 40px;
-    cursor: pointer;
-  }
-  
-  .header__account-image {
-    object-fit: cover;
-    width: 126px;
-    height: 40px;
-    margin: 0 -13px;
-    transition: 0.7s;
-  }
-  
-  .header__account-btn:hover {
-    opacity: 0.6;
-  }
-  
-  .header__menu-button {
-    padding: 0;
-    border: none;
-    width: 44px;
-    height: 44px;
-    display: none;
-    cursor: pointer;
-    transition: 0.7s;
+  position: relative;
+   padding: 0 70px; 
+   min-height: 74px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #073042;
+}
+
+.header_theme_dark {
+  background: #202020;
+}
+
+.header__btn-container {
+  margin-left: auto;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.header__btn-container-movies {
+  display: flex;
+  gap: 21px;
+  margin-left: 44px;
+}
+
+.header__btn {
+  min-height: 32px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.7s;
+}
+
+.header__btn.active {
+  font-weight: 500;
+}
+
+.header__btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.header__btn-green {
+  min-width: 76px;
+  border-radius: 3px;
+  color: #000;
+  background-color: #3ddc84;
+}
+
+.header__account-btn {
+  width: 100px;
+  height: 32px;
+  background: #202020;
+  box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+}
+
+.header__account-btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.header__account-image {
+  object-fit: cover;
+  width: 100px;
+  transition: 0.7s;
+}
+
+.header__menu-button {
+  /*   padding: 0;
+  margin: 0; */
+  border: none;
+  width: 44px;
+  height: 44px;
+  display: none;
+  cursor: pointer;
+  transition: 0.7s;
+  background: #202020;
+}
+
+.header__menu-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 787px) {
+  .header {
+    padding: 0 30px;
     
   }
-  
-  .header__menu-button:hover {
-    opacity: 0.6;
+
+  .header__btn-container-movies {
+    display: none;
   }
-  
-  @media screen and (max-width: 787px) {
-    .header {
-      padding: 0 30px;
-    }
-  
-    .header__btn-container-films {
-      display: none;
-    }
-  
-    .header__account-btn {
-      display: none;
-    }
-  
-    .header__menu-button {
-      display: flex;
-    }
+
+  .header__account-btn {
+    display: none;
   }
-  
-  @media screen and (max-width: 523px) {
-    .header {
-      padding: 0 14px;
-    }
-  
-    .header__btn-container {
-      gap: 14px;
-    }
-  
-    .header__btn {
-      min-height: 26px;
-      font-size: 10px;
-      line-height: 16px;
-    }
-  
-    .header__btn-green {
-      min-width: 54px;
-    }
+
+  .header__menu-button {
+    display: flex;
   }
-  
+}
+
+@media screen and (max-width: 523px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__menu-button {
+    width: 40px;
+    height: 40px;
+
+  }
+
+  .header__btn-container {
+    gap: 14px;
+  }
+
+  .header__btn {
+    min-height: 26px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__btn-green {
+    min-width: 54px;
+  }
+}

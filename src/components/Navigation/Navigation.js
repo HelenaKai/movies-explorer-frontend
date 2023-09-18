@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
-import Account from "../../images/account-btn.svg";
+import account from "../../images/account_button.svg";
 
 function Navigation({ handleClose }) {
   return (
     <div className="nav__page-overlay">
       <div className="nav__overlay-container"></div>
       <div className="nav__menu">
-        <button className="nav__close-btn" onClick={handleClose}></button>
+        <button className="nav__close-button" onClick={handleClose} type="button"></button>
         <nav className="nav__links">
           <NavLink
             exact
@@ -33,8 +33,9 @@ function Navigation({ handleClose }) {
             Сохранённые фильмы
           </NavLink>
         </nav>
-        <Link to="/profile" className="nav__account-btn">
-          <img src={Account} alt="Кнопка входа в аккаунт" />
+        <Link to="/profile" className="nav__account-button">
+          <p className="nav__account-title">Аккаунт</p>
+          <img className="nav__accont-icon" src={account} alt="Кнопка входа в аккаунт" />
         </Link>
       </div>
     </div>

@@ -4,12 +4,12 @@ import SearchForm from "../SearchForm/SearchForm";
 
 function Movies() {
   return (
-    <main>
-      <section className="movies">
+   
+      <main className="movies">
         <SearchForm />
-        <MoviesCardList />
-      </section>
-    </main>
+        <MoviesCardList  />
+      </main>
+
   );
 }
 

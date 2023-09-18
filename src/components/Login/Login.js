@@ -2,7 +2,7 @@ import React from 'react';
 import '../Form/Form.css';
 import Form from '../Form/Form';
 
-function Login(onSubmit) {
+function Login({onSubmit}) {
 
   const handleInputChange = (event) => {
     const input = event.target;

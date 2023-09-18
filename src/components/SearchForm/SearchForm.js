@@ -10,14 +10,20 @@ function SearchForm() {
           type="text"
           required
         />
-        <button className="search__button" />
+        <button className="search__button" type="submit"/>
       </div>
       <div className="search__toggle">
         <label className="search__tumbler">
-          <input type="checkbox" className="search__checkbox" />
+          <input
+            id="short-films"
+            type="checkbox"
+            className="search__checkbox"
+          />
           <span className="search__slider" />
         </label>
-        <p className="search__toggle-title">Короткометражки</p>
+        <label htmlFor="short-films" className="search__toggle-title">
+          Короткометражки
+        </label>
       </div>
     </form>
   );

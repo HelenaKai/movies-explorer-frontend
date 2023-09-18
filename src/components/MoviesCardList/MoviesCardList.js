@@ -12,22 +12,22 @@ function MoviesCardList() {
   };
 
   return (
-    <section className="cards">
-      <ul className="cards__grid">
+    <section className="movies-list">
+      <ul className="movies-list__grid">
         {cards.map((card) => (
           <MoviesCard key={card.id} card={card} />
         ))}
       </ul>
+
       {isLoading ? (<Preloader />) : (
-        <div className="cards__button-container">
-          <button
-            className="cards__loader-button"
-            type="button"
-            onClick={handlePreloader}
-          >
-            Ещё
-          </button>
-        </div>
+        <button aria-label='Показать еще'
+          className="movies-list__more-button"
+          type="button"
+          onClick={handlePreloader}
+        >
+          Ещё
+        </button>
+
       )}
     </section>
   );

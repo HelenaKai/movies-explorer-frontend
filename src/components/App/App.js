@@ -21,19 +21,20 @@ function App() {
     const { pathname } = location;
     return (
       pathname === "/" ||
-      pathname === "/movies" ||
-      pathname === "/saved-movies" ||
+      pathname === "/movies"  ||
+      pathname === "/saved-movies"  ||
       pathname === "/profile"
     );
+    
   };
 
   // функция проверки Footer на текущей странице
   const showFooter = () => {
     const { pathname } = location;
     return (
-      pathname === "/" || 
+      pathname === "/"  || 
       pathname === "/movies" || 
-      pathname === "/saved-movies"
+      pathname === "/saved-movies" 
     );
   };
 

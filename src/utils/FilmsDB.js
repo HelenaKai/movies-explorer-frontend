@@ -9,24 +9,28 @@ export const cards = [
     title: 'По волнам: Искусство звука в кино',
     length: '1ч42м',
     image: pic__film1,
+    owner: 0,
   },
   {
     id:2,
     title: 'Баския: Взрыв реальности',
     length: '1ч42м', 
     image: pic__film2,
+    owner: 0,
   },
   {
     id:3,
     title: 'Gimme Danger: История Игги',
     length: '1ч42м',
     image: pic__film3,
+    owner: 0,
   },
   {
     id:4,
     title: '33 слова о дизайне',
     length: '1ч42м',
     image: pic__film4,
+    owner: 0,
   }
 ]
 
