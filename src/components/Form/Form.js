@@ -4,7 +4,18 @@ import Logo from "../Logo/Logo";
 import "./Form.css";
 
 function Form(props) {
-  const { welcome, children, button, question, path, link } = props;
+  const { 
+    welcome, 
+    name, 
+    children, 
+    button, 
+    question, 
+    path, 
+    link,
+    onSubmit, 
+    isDisabled,
+    isLoading,
+  } = props;
 
   return (
     <section className="form">
@@ -13,9 +24,24 @@ function Form(props) {
 
         <h1 className="form__title"> {welcome} </h1>
 
-        <form className="form__inputs">
+        <form
+          className="form__inputs"
+          name={`${name}-form`}
+          id="form"
+          onSubmit={onSubmit}
+          noValidate>
+
           {children}
-          <button className="form__button-save" type="submit" disabled>
+         
+         
+          <button
+            type="submit"
+            disabled={isDisabled ? true : false}
+            className={ isDisabled || isLoading
+                ? 'form__button-save form__button-save_inactive'
+                : 'form__button-save'
+            }          
+          >
             {button}
           </button>
         </form>

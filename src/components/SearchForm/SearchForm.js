@@ -1,23 +1,36 @@
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm({
+  isShortFilm,
+  setIsShortFilm,
+  searchQuery,
+  setSearchQuery,
+  searchFilms,
+}) {
   return (
-    <form className="search">
+    <form className="search" onSubmit={searchFilms}>
       <div className="search__container">
         <input
           className="search__input"
-          placeholder="Фильмы"
+          name="film"
           type="text"
+          placeholder="Фильмы"
+          value={searchQuery}
+          onInput={(e) => setSearchQuery(e.target.value)}
           required
         />
-        <button className="search__button" type="submit"/>
+        <button className="search__button" type="submit" />
       </div>
+
       <div className="search__toggle">
         <label className="search__tumbler">
           <input
             id="short-films"
-            type="checkbox"
             className="search__checkbox"
+            name="short"
+            type="checkbox"
+            checked={isShortFilm}
+            onChange={() => setIsShortFilm(!isShortFilm)}
           />
           <span className="search__slider" />
         </label>
@@ -26,6 +39,7 @@ function SearchForm() {
         </label>
       </div>
     </form>
+
   );
 }
 

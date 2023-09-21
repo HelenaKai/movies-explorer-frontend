@@ -1,11 +1,14 @@
 .not-found {
-  width: 100%;
+  background: #202020;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .not-found__title {
-  margin: 0; 
+  margin: 0;
   padding: 246px 0 5px 0;
   font-size: 140px;
   line-height: 169px;
@@ -15,12 +18,12 @@
 }
 
 .not-found__subtitle {
-  margin: 0;
-  padding-bottom: 184px;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  font-weight: 400;
   text-align: center;
+  margin: 0;
+  padding-bottom: 184px;
   
 }
 
@@ -40,7 +43,8 @@
   opacity: 0.7;
 }
 
-@media screen and (max-width: 787px) {
+
+ @media screen and (max-width: 787px) {
   .not-found__title {
     padding: 408px 0 5px 0;
   }
@@ -72,7 +76,7 @@
     line-height: 15px;
   
   }
-}
+} 
 
 
 

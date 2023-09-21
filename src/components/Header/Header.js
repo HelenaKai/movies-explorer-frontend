@@ -41,21 +41,22 @@ function Header() {
       {showSinglHeader() && (
         <header className="header" id="header">
           <Logo />
-          <div className="header__btn-container">
+          <nav className="header__btn-container">
+
             <Link to="/signup" className="header__btn">
               Регистрация
             </Link>
             <Link to="/signin" className="header__btn header__btn-green">
               Войти
             </Link>
-          </div>
+          </nav>
         </header>
       )}
 
       {showSecndHeader() && (
         <header className="header header_theme_dark" id="header_theme_dark">
           <Logo />
-          <div className="header__btn-container-movies">
+          <nav className="header__btn-container-movies">
             <NavLink
               to="/movies"
               className="header__btn"
@@ -70,8 +71,8 @@ function Header() {
             >
               Сохранённые фильмы
             </NavLink>
-          </div>
-          <div className="header__btn-container">
+          </nav>
+          <nav className="header__btn-container">
             <Link to="/profile" className="header__account-btn">
               <img
                 className="header__account-image"
@@ -80,10 +81,10 @@ function Header() {
               />
             </Link>
             <button className="header__menu-button" onClick={handleOpen}>
-              <img src={Menu} alt="Кнопка меню"/>
+              <img src={Menu} alt="Кнопка меню" />
             </button>
-          </div>
-          {isClicked ? <Navigation handleClose={handleClose}/> : ""}
+          </nav>
+          {isClicked ? <Navigation handleClose={handleClose} /> : ""}
         </header>
       )}
     </>

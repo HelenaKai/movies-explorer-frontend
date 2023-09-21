@@ -1,18 +1,18 @@
 .form {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   background: #202020;
-  box-sizing: border-box;
-}
-
-.form__container {
-  padding: 70px 0;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   max-width: 396px;
-  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  width: 396px;
+  padding: 70px 0;
 }
 
 .form__link {
@@ -102,7 +102,7 @@
   border-radius: 8px;
   background: #2F2F2F;
   width: 100%;
-  height: 46px;
+  min-height: 46px;
   box-sizing: border-box;
   border: none;
   color: #FFF;

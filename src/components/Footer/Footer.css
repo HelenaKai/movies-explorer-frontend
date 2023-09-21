@@ -1,5 +1,23 @@
 .footer {
-  padding: 79px 70px 20px;
+padding: 79px 70px 20px;
+  flex-shrink: 0; 
+  box-sizing: border-box;
+  max-width: 1280px;
+  width: 100%;
+
+
+/*   padding: 81px 70px 21px;
+  max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: padding .5s; */
+
+
+
 }
 
 .footer__title {

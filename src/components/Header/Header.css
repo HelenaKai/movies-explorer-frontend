@@ -1,11 +1,17 @@
 .header {
-  position: relative;
-   padding: 0 70px; 
-   min-height: 74px; 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: #073042;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 18px 70px;
+
+  /*   margin: 0 auto;
+  display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /*   max-width: 1280px; 
+  width: 100%;*/
 }
 
 .header_theme_dark {
@@ -13,10 +19,21 @@
 }
 
 .header__btn-container {
-  margin-left: auto;
   display: flex;
   gap: 30px;
   align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+
+  /*   max-width: 1280px;
+  display: flex;
+  width: 100%;
+   */
+  /*  padding: 18px 70px; */
+  /*  position: relative;
+  box-sizing: border-box; */
+
+
 }
 
 .header__btn-container-movies {
@@ -97,8 +114,8 @@
 
 @media screen and (max-width: 787px) {
   .header {
-    padding: 0 30px;
-    
+    padding: 18px 30px;
+
   }
 
   .header__btn-container-movies {
@@ -116,7 +133,7 @@
 
 @media screen and (max-width: 523px) {
   .header {
-    padding: 0 14px;
+    padding: 18px 14px;
   }
 
   .header__menu-button {
