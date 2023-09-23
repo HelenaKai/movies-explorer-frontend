@@ -1,0 +1,17 @@
+.logo {
+  display: block;
+  width: 38px;
+  height: 38px;
+  transition: 0.7s ease-in;
+}
+
+.logo:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.logo:active {
+  transform: scale(0.9);
+}
+
+

@@ -1,0 +1,158 @@
+.header {
+  background: #073042;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 18px 70px;
+
+  /*   margin: 0 auto;
+  display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /*   max-width: 1280px; 
+  width: 100%;*/
+}
+
+.header_theme_dark {
+  background: #202020;
+}
+
+.header__btn-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+
+  /*   max-width: 1280px;
+  display: flex;
+  width: 100%;
+   */
+  /*  padding: 18px 70px; */
+  /*  position: relative;
+  box-sizing: border-box; */
+
+
+}
+
+.header__btn-container-movies {
+  display: flex;
+  gap: 21px;
+  margin-left: 44px;
+}
+
+.header__btn {
+  min-height: 32px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.7s;
+}
+
+.header__btn.active {
+  font-weight: 500;
+}
+
+.header__btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.header__btn-green {
+  min-width: 76px;
+  border-radius: 3px;
+  color: #000;
+  background-color: #3ddc84;
+}
+
+.header__account-btn {
+  width: 100px;
+  height: 32px;
+  background: #202020;
+  box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+}
+
+.header__account-btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.header__account-image {
+  object-fit: cover;
+  width: 100px;
+  transition: 0.7s;
+}
+
+.header__menu-button {
+  /*   padding: 0;
+  margin: 0; */
+  border: none;
+  width: 44px;
+  height: 44px;
+  display: none;
+  cursor: pointer;
+  transition: 0.7s;
+  background: #202020;
+}
+
+.header__menu-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 787px) {
+  .header {
+    padding: 18px 30px;
+
+  }
+
+  .header__btn-container-movies {
+    display: none;
+  }
+
+  .header__account-btn {
+    display: none;
+  }
+
+  .header__menu-button {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 523px) {
+  .header {
+    padding: 18px 14px;
+  }
+
+  .header__menu-button {
+    width: 40px;
+    height: 40px;
+
+  }
+
+  .header__btn-container {
+    gap: 14px;
+  }
+
+  .header__btn {
+    min-height: 26px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__btn-green {
+    min-width: 54px;
+  }
+}
