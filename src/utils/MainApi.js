@@ -1,121 +1,117 @@
-class MainApi {
-  constructor(options) {
-    this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
-  }
+export const BASE_URL = "http://localhost:3000";
 
-  _checkResponse(res) {
-    if (res.ok) {
-      return res.json()
-    }
-    return Promise.reject(`Error: ${res.status}`)
-  }
+  // export const BASE_URL ='https://api.helenpro.nomoredomainsicu.ru';
 
-
-  // Получение информации о пользователе
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'GET',
-      headers: this._headers,
-    }).then(this._checkResponse).then((res) => res);
+ const handleRequest = (res) => {
+  if (res.ok) {
+    return res.json()
   }
-
-  // Изменение информации о пользователе
-  updateUserInfo({ name, email }) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify({ name, email }),
-    }).then(this._checkResponse);
-  }
-
-  // Действия с фильмами
-  // Получение фильмов локальное
-  getMovies() {
-    return fetch(`${this._baseUrl}/movies`, {
-      method: 'GET',
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  // Сохранение фильма в избранное
-  addMovies(movie) {
-    return fetch(`${this._baseUrl}/movies`, {
-      method: 'POST',
-      headers: this._headers,
-      body: JSON.stringify({
-        country: movie.country ? movie.country : "Страна не указана",
-        director: movie.director ? movie.director : "Режиссер не указан",
-        duration: movie.duration,
-        year: movie.year ? movie.year : "Год не указан",
-        description: movie.description ? movie.description : "Описание не указано",
-        image: `https://api.nomoreparties.co${movie.image.url}`,
-        trailerLink: movie.trailerLink ? movie.trailerLink : "Трейлер отсутствует",
-        nameRU: movie.nameRU ? movie.nameRU : "Название на русском языке не указано",
-        nameEN: movie.nameEN ? movie.nameEN : "Назввание на английском языке не указано",
-        thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
-        movieId: movie.id,
-      }),
-    }).then(this._checkResponse);
-  }
-
-  // Удаление фильма из избранного
-  deleteMovies(movieId) {
-    return fetch(`${this._baseUrl}/movies/${movieId}`, {
-      method: 'DELETE',
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  // Действия с пользователем
-  // Регистрация нового пользователя
-  register({ name, email, password }) {
-    return fetch(`${this._baseUrl}/signup`, {
-      method: 'POST',
-      headers: {
-        "Accept": "application/json",
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, password }),
-    }).then(this._checkResponse);
-  }
-
-  // Авторизация пользователя
-  login({ email, password }) {
-    return fetch(`${this._baseUrl}/signin`, {
-      method: 'POST',
-      headers: {
-        "Accept": "application/json",
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    }).then(this._checkResponse);
-  }
-
-  checkToken(token) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'GET',
-      headers: {
-        "Accept": "application/json",
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-    }).then(this._checkResponse);
-  }
-
-  updateToken() {
-    this._headers.Authorization = `Bearer ${localStorage.getItem('jwt')}`;
-  }
+  return Promise.reject(`Ошибка: ${res.status}`)
 }
 
-const mainApi = new MainApi({
-  baseUrl: 'http://localhost:3000',
-  // baseUrl: 'https://api.helenpro.nomoredomainsicu.ru',
-  headers: {
-    'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-});
+export const getContent = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => handleRequest(res));
+};
 
-export default mainApi;
+// метод делает запрос серверу и получает данные профиля
+export const getUserInfo = () => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-Type": "application/json",
+    },
+  }).then((res) => handleRequest(res));
+};
+
+export const updateProfileUserInfo = (data) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+    }),
+  }).then((res) => handleRequest(res));
+};
+
+export const register = (name, email, password) => {
+  return fetch(`${BASE_URL}/signup`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, email, password }),
+  }).then((res) => handleRequest(res));
+};
+
+export const login = (email, password) => {
+  return fetch(`${BASE_URL}/signin`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  }).then((res) => handleRequest(res));
+};
+
+// Действия с фильмами
+  // Получение фильмов 
+export const getMovies = () => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-Type": "application/json",
+    },
+  }).then((res) => handleRequest(res));
+};
+
+  // Сохранение фильма в избранное
+export const addCard = (data) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      country: data.country,
+      director: data.director,
+      duration: data.duration,
+      year: data.year,
+      description: data.description,
+      image: `https://api.nomoreparties.co${data.image.url}`,
+      trailerLink: data.trailerLink,
+      thumbnail:
+      `https://api.nomoreparties.co${data.image.formats.thumbnail.url}`,
+      movieId: data.id,
+      nameRU: data.nameRU,
+      nameEN: data.nameEN,
+    }),
+  }).then((res) => handleRequest(res));
+};
+
+ // Удаление фильма из избранного
+export const deleteCard = (cardId) => {
+  return fetch(`${BASE_URL}/movies/${cardId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-Type": "application/json",
+    },
+  }).then((res) => handleRequest(res));
+};
+
