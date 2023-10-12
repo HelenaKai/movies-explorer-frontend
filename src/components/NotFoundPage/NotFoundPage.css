@@ -35,6 +35,7 @@
   font-weight: 400;
   color: #4285F4;
   border: none;
+  background-color: transparent;
   text-decoration: none;
   cursor: pointer;
 }

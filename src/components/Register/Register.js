@@ -1,18 +1,21 @@
-import React from 'react';
-import '../Form/Form.css';
-import Form from '../Form/Form';
+import React from "react";
+import "../Form/Form.css";
+import Form from "../Form/Form";
+import useForm from "../../hooks/useForm";
+import { EMAIL_REGEX } from "../../utils/constants";
 
-function Register(props) {
+function Register({ onRegister, isLoading }) {
 
-  const handleInputChange = (event) => {
-    const input = event.target;
-    const errorSpan = input.nextElementSibling; // Следующий элемент после инпута – это span с ошибкой
-    if (!input.validity.valid) {
-      errorSpan.textContent = input.validationMessage;
-    } else {
-      errorSpan.textContent = '';
-    }
-  };
+  const { inputValues, errorMessages, handleChange, isValid } = useForm();
+
+  function submitUserInfo(event) {
+    event.preventDefault();
+    onRegister({
+      name: inputValues.name,
+      email: inputValues.email,
+      password: inputValues.password,
+    });
+  }
 
   return (
     <>
@@ -24,6 +27,9 @@ function Register(props) {
           question="Уже зарегистрированы?"
           path="/signin"
           link="Войти"
+          onSubmit={submitUserInfo}
+          isDisabledButton={!isValid}
+          isLoading={isLoading}
         >
           <label className="form__item">
             Имя
@@ -35,11 +41,11 @@ function Register(props) {
               placeholder="Введите имя"
               minLength="2"
               maxLength="30"
+              onChange={handleChange}
+              value={inputValues.name || ""}
               required
-              onInput={handleInputChange}
-
             />
-            <span className="form__input-error"></span>
+            <span className="form__input-error">{errorMessages.name}</span>
           </label>
 
           <label className="form__item">
@@ -50,10 +56,12 @@ function Register(props) {
               type="email"
               id="email-input"
               placeholder="Введите email"
+              onChange={handleChange}
+              pattern={EMAIL_REGEX}
+              value={inputValues.email || ""}
               required
-              onInput={handleInputChange}
             />
-            <span className="form__input-error"></span>
+            <span className="form__input-error">{errorMessages.email}</span>
           </label>
 
           <label className="form__item">
@@ -63,14 +71,14 @@ function Register(props) {
               className="form__input"
               type="password"
               id="password-input"
-              defaultValue=""
               minLength="2"
               maxLength="30"
               placeholder="Введите пароль"
+              onChange={handleChange}
+              value={inputValues.password || ""}
               required
-              onInput={handleInputChange}
             />
-            <span className="form__input-error"></span>
+            <span className="form__input-error">{errorMessages.password}</span>
           </label>
         </Form>
       </main>

@@ -33,8 +33,7 @@ function Form(props) {
 
           {children}
          
-         
-          <button
+           <button
             type="submit"
             disabled={isDisabled ? true : false}
             className={ isDisabled || isLoading

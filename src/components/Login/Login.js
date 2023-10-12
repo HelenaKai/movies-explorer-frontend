@@ -1,34 +1,34 @@
 import React from 'react';
 import '../Form/Form.css';
 import Form from '../Form/Form';
+import { EMAIL_REGEX } from "../../utils/constants";
+import useForm from "../../hooks/useForm";
 
-function Login(props) {
-  const { onSubmit, isValid, isDisabled } = props;
+function Login({ onLogin, isLoading }) {
 
-  const handleInputChange = (event) => {
-    const input = event.target;
-    const errorSpan = input.nextElementSibling; // Следующий элемент после инпута – это span с ошибкой
-    if (!input.validity.valid) {
-      errorSpan.textContent = input.validationMessage;
-    } else {
-      errorSpan.textContent = '';
-    }
-  };
+  const { inputValues, errorMessages, handleChange, isValid } = useForm();
 
-
+  function submitUserInfo(event) {
+    event.preventDefault()
+    onLogin({
+      email: inputValues.email,
+      password: inputValues.password,
+    })
+  }
+ 
   return (
     <>
       <main>
         <Form
           name="login"
           welcome="Рады видеть!"
-          onSubmit={onSubmit}
-          isValid={isValid}
-          isDisabled={isDisabled}
           button="Войти"
           question="Ещё не зарегистрированы?"
           path="/signup"
           link="Регистрация"
+          onSubmit={submitUserInfo}
+          isDisabledButton={!isValid}
+          isLoading={isLoading}
           noValidate
         >
           <label className="form__item">
@@ -38,13 +38,15 @@ function Login(props) {
               name="email"
               id="email-input"
               type="email"
-              onInput={handleInputChange}
               placeholder="Введите email"
-              autoComplete="off"
+             /*  autoComplete="off" */
+              onChange={handleChange}
+              pattern={EMAIL_REGEX}
+              value={inputValues.email || ""}
               required
               
             />
-            <span className="form__input-error"></span>
+            <span className="form__input-error">{errorMessages.email}</span>
           </label>
 
           <label className="form__item">
@@ -56,12 +58,13 @@ function Login(props) {
               type="password"
               minLength="2"
               maxLength="30"
-              onInput={handleInputChange}
               placeholder="Введите пароль"
-              autoComplete="off"
+              /* autoComplete="off" */
+              onChange={handleChange}
+              value={inputValues.password || ""}
               required
             />
-            <span className="form__input-error"></span>
+            <span className="form__input-error">{errorMessages.password}</span>
           </label>
         </Form>
       </main>
