@@ -21,6 +21,8 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import InfoPopup from "../InfoPopup/InfoPopup";
 import InfoPopupUpdate from "../InfoPopupUpdate/InfoPopupUpdate";
 
+import Preloader from "../Preloader/Preloader";
+
 import "./App.css";
 
 import * as api from "../../utils/MainApi";
@@ -155,6 +157,36 @@ function App() {
       });
   }
 
+  // Сохранение карточек с фильмом (визуально - постановка лайка):
+  function handleCardLike(card) {
+    api
+      .addCard(card)
+      .then((newMovie) => {
+        setSavedMovies([newMovie, ...savedMovies]);
+      })
+      .catch((err) => {
+        setIsSuccess(false);
+        console.log(err);
+        errorHandler(err);
+      });
+  }
+
+  // Удаление карточки фильма из сохранённых (визуально - снятие лайка или нажатие на крестик):
+  function handleCardDelete(card) {
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        setSavedMovies((state) =>
+          state.filter((item) => item._id !== card._id)
+        );
+      })
+      .catch((err) => {
+        setIsSuccess(false);
+        console.log(err);
+        errorHandler(err);
+      });
+  }
+
   // Проверяем, ошибка  является ли ошибкой авторизации
   function errorHandler(err) {
     if (err === "Error: 401") {
@@ -203,9 +235,10 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
+      {isLoading && <Preloader />}
       <div className="app">
-        {location.pathname === "/signin" || location.pathname ===  "/signup" ? (
-          "" 
+        {location.pathname === "/signin" || location.pathname === "/signup" ? (
+          ""
         ) : (
           <Header LoggedIn={isLoggedIn} />
         )}
@@ -242,6 +275,8 @@ function App() {
                 component={Movies}
                 loggedIn={isLoggedIn}
                 savedMovies={savedMovies}
+                handleLikeFilm={handleCardLike}
+                onDeleteCard={handleCardDelete}
                 isLoading={isLoading}
               />
             }
@@ -254,6 +289,7 @@ function App() {
                 path="/saved-movies"
                 loggedIn={isLoggedIn}
                 savedMovies={savedMovies}
+                onDeleteCard={handleCardDelete}
                 component={SavedMovies}
               />
             }
