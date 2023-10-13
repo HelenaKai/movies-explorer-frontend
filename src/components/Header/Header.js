@@ -29,12 +29,12 @@ function Header({ LoggedIn }) {
           className={`header ${ location.pathname === "/" && "header_location_home" }`} >
           <Logo />
           <nav className="header__btn-container">
-            <Link to="/signup" className="header__btn">
+            <NavLink to="/signup" className="header__btn">
               Регистрация
-            </Link>
-            <Link to="/signin" className="header__btn header__btn-green">
+            </NavLink>
+            <NavLink to="/signin" className="header__btn header__btn-green">
               Войти
-            </Link>
+            </NavLink>
           </nav>
         </header>
       ) : (

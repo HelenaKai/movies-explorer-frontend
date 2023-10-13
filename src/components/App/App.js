@@ -244,7 +244,7 @@ function App() {
         )}
 
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route exact path="/" element={<Main />} />
           <Route
             path={"/signin"}
             element={
