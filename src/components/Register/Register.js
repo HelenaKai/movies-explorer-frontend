@@ -4,9 +4,9 @@ import Form from "../Form/Form";
 import useForm from "../../hooks/useForm";
 import { EMAIL_REGEX } from "../../utils/constants";
 
-function Register({ onRegister, isLoading }) {
+function Register({ onRegister, isLoading, isLoggedIn }) {
 
-  const { inputValues, errorMessages, handleChange, isValid } = useForm();
+  const { inputValues, errorMessages, handleChange, isValid, resetForm } = useForm();
 
   function submitUserInfo(event) {
     event.preventDefault();
@@ -17,8 +17,13 @@ function Register({ onRegister, isLoading }) {
     });
   }
 
+  React.useEffect(() => {
+    resetForm();
+  }, [resetForm]);
+
+
   return (
-    <>
+   
       <main>
         <Form
           name="register"
@@ -82,7 +87,7 @@ function Register({ onRegister, isLoading }) {
           </label>
         </Form>
       </main>
-    </>
+  
   );
 }
 

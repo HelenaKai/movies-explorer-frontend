@@ -23,6 +23,8 @@ import InfoPopupUpdate from "../InfoPopupUpdate/InfoPopupUpdate";
 
 import Preloader from "../Preloader/Preloader";
 
+import ScrollToTop from '../../utils/ScrollToTop/ScrollToTop';
+
 import "./App.css";
 
 import * as api from "../../utils/MainApi";
@@ -60,7 +62,7 @@ function App() {
             localStorage.removeItem("allMovies");
             setIsLoggedIn(true);
           }
-          navigate(path);
+          navigate(path, { replace: true });
         })
         .catch((err) => {
           console.log(err);
@@ -136,6 +138,7 @@ function App() {
       });
   }
 
+
   // Обновление данных пользователя
   function handleUpdateProfile(newUserInfo) {
     setIsLoading(true);
@@ -197,8 +200,22 @@ function App() {
   // Выход
   const handleSignOut = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("movies");
+    localStorage.removeItem("movieSearch");
+    localStorage.removeItem("shortMovies");
+    localStorage.removeItem("allMovies");
     localStorage.clear();
     navigate("/");
+
+    
+  /*   setIsLoggedIn(false);
+    localStorage.clear();
+    setCurrentUser({
+      name: '',
+      email: '',
+    });
+    navigate("/"); */
   };
 
   //-----------Модальные окна-------------------------------------
@@ -236,13 +253,19 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       {isLoading && <Preloader />}
+      <ScrollToTop />
+     
       <div className="app">
-        {location.pathname === "/signin" || location.pathname === "/signup" ? (
-          ""
-        ) : (
+        {location.pathname === "/" ||
+        location.pathname === "/profile" ||
+        location.pathname === "/movies" ||
+        location.pathname === "/saved-movies" ? (
           <Header LoggedIn={isLoggedIn} />
+        ) : (
+          <></>
         )}
 
+      
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route
