@@ -1,22 +1,21 @@
 .header {
-  background: #073042;
+ /*  background: #073042; */
   display: flex;
   width: 100%;
   justify-content: space-around;
   box-sizing: border-box;
   padding: 18px 70px;
-
-  /*   margin: 0 auto;
-  display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /*   max-width: 1280px; 
-  width: 100%;*/
 }
 
-.header_theme_dark {
-  background: #202020;
+.header_location_home {
+  background-color: #073042;
+  /* background: #202020; */
 }
+
+/* .header_theme_dark {
+ /*  background: #202020; */
+/*   background: #073042; */
+/* } */ 
 
 .header__btn-container {
   display: flex;
@@ -24,16 +23,6 @@
   align-items: center;
   justify-content: space-between;
   margin-left: auto;
-
-  /*   max-width: 1280px;
-  display: flex;
-  width: 100%;
-   */
-  /*  padding: 18px 70px; */
-  /*  position: relative;
-  box-sizing: border-box; */
-
-
 }
 
 .header__btn-container-movies {
@@ -56,8 +45,22 @@
   transition: 0.7s;
 }
 
-.header__btn.active {
+.header__btn_active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 18px;
+  
   font-weight: 500;
+    color: #fff;
+ /*    border-bottom: 1px solid rgba(218, 218, 218, 1); */
+  /* color: #2be080; */
+
+  /*   text-decoration: none;
+  font-weight: 500;
+  color: #2be080; */
 }
 
 .header__btn:hover {
@@ -73,14 +76,28 @@
 }
 
 .header__account-btn {
+  display: flex;
+  align-items: center;
   width: 100px;
   height: 32px;
-  background: #202020;
+ /*  background: #202020; */
   box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
   border-radius: 40px;
   cursor: pointer;
   transition: opacity 0.3s ease;
   text-decoration: none;
+}
+
+
+.header__account-title {
+color: #fff;
+font-size: 13px;
+font-weight: 500;
+line-height: 12px;
+margin: 0;
+margin-left: 11px;
+margin-right: 7px;
+text-decoration-line: none;
 }
 
 .header__account-btn:hover {
@@ -91,13 +108,19 @@
 
 .header__account-image {
   object-fit: cover;
-  width: 100px;
+  /* width: 100px; */
   transition: 0.7s;
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+  padding: 7.8px;
+  background: #313131;
+  
 }
 
 .header__menu-button {
-  /*   padding: 0;
-  margin: 0; */
+    padding: 0;
+  margin: 0;
   border: none;
   width: 44px;
   height: 44px;
@@ -105,6 +128,18 @@
   cursor: pointer;
   transition: 0.7s;
   background: #202020;
+}
+
+.header__menu-button__blue{
+  background-color: #073042;
+}
+
+.header__account-btn__blue{
+  background-color: #073042;
+}
+
+.header__account-image__blue{
+  background-color: #0F4157;
 }
 
 .header__menu-button:hover {
@@ -115,7 +150,6 @@
 @media screen and (max-width: 787px) {
   .header {
     padding: 18px 30px;
-
   }
 
   .header__btn-container-movies {
@@ -139,7 +173,6 @@
   .header__menu-button {
     width: 40px;
     height: 40px;
-
   }
 
   .header__btn-container {
